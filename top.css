@@ -59,3 +59,11 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
+.description {
+    display: none; 
+    margin-top: 10px;
+}
+
+.description.show {
+    display: block; 
+}

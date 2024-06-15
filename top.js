@@ -2,22 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const carList = document.getElementById('car-list');
     const cars = [
         {
-            name: 'moto 1',
+            name: 'XJ6',
             price: '$10,000',
-            image: 'moto.png',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor lacus vel neque consequat, sit amet ultricies libero vulputate.'
+            image: 'XJ6 foto.jpeg',
+            description: 'O motor de 600cc com duplo comando (DOHC), 16 válvulas e arrefecimento a água desenvolve potência de 77,5 cavalos a 10.000 rpm e torque de 6,1 kgf.m a 8.500 rpm.'
         },
         {
-            name: 'moto 2',
+            name: 'Factor 150 2024',
             price: '$15,000',
-            image: 'car2.jpg',
-            description: 'Sed eget massa et nulla scelerisque vehicula id non turpis. Morbi fringilla pharetra mauris vitae viverra.'
+            image: 'Factor 150 2024 foto.jpeg',
+            description: 'Factor 150 2024 traz motor de 149 cc, SOHC, monocilíndrico, duas válvulas, quatro tempos, refrigeração a ar e movido com gasolina ou etanol. O motor gera 12,2 cv de potência com gasolina e 12,4 cv com etanol a 7.500 rpm. O torque máximo é de 1,3 kgfm com os dois combustíveis a 5.500 rpm.'
         },
         {
-            name: 'moto 3',
+            name: 'MT 07',
             price: '$20,000',
-            image: 'car3.jpg',
-            description: 'Praesent ultricies dictum felis nec ultricies. Cras dapibus volutpat elit, non suscipit justo varius at.'
+            image: 'MT 07 foto.jpeg',
+            description: 'Com apenas 183 kg, 6,9 kgf.m e 74,8 cv, a MT-07 é ágil, potente e com o torque brutal do DNA Master of Torque. Essa moto de 689cc promete agilidade e performance de uma autêntica street fighter.'
         }
     ];
 
@@ -43,7 +43,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const description = document.createElement('p');
         description.textContent = car.description;
+        description.classList.add('description'); 
         carContent.appendChild(description);
+
+        const detailsButton = document.createElement('button');
+        detailsButton.textContent = 'Ver Detalhes';
+        detailsButton.classList.add('details-button');
+        carContent.appendChild(detailsButton);
+
+        detailsButton.addEventListener('click', function() {
+            description.classList.toggle('show');
+            if (description.classList.contains('show')) {
+                detailsButton.textContent = 'Ocultar Detalhes';
+            } else {
+                detailsButton.textContent = 'Ver Detalhes';
+            }
+        });
+
+        const buyButton = document.createElement('button');
+        buyButton.textContent = 'Comprar';
+        buyButton.classList.add('buy-button');
+        carContent.appendChild(buyButton);
+
+        const targetHTML = 'teste.html'; 
+        buyButton.addEventListener('click', function() {
+            window.location.href = targetHTML;
+        });
 
         carList.appendChild(carItem);
     });
